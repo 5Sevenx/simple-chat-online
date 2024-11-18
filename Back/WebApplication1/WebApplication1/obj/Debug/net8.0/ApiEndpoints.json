@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "dotnet_chat.Controllers.ChatController",
+    "Method": "Message",
+    "RelativePath": "api/messages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "dotnet_chat.dtos.MessageDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
