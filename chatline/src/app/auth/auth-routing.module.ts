@@ -6,11 +6,10 @@ import { AppearanceComponent } from '../main/appearance/appearance.component';
 import { ProfileComponent } from '../main/profile/profile.component';
 
 
-const routes: Routes = [{
-  path:'',
-  component: AuthPageComponent,
-  children:[{path:'**', redirectTo:''}]
-}];
+const routes: Routes = [
+  { path: '', component: AuthPageComponent },
+];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

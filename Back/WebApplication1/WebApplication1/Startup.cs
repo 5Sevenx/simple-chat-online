@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +7,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using WebApplication1.Data;
+using StackExchange.Redis;
 
 namespace dotnet_chat
 {
+
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -23,23 +25,51 @@ namespace dotnet_chat
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Redis Setup
+            string redisConnection = Configuration.GetConnectionString("Redis");
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = redisConnection;
+            });
+
+            var redisConfiguration = ConfigurationOptions.Parse("10.30.0.2:9537,password=Alex");
+            IConnectionMultiplexer redis = null;
+            try
+            {
+                redis = ConnectionMultiplexer.Connect(redisConfiguration);
+                services.AddSingleton(redis);
+            }
+            catch (RedisConnectionException ex)
+            {
+                Console.WriteLine($"Redis Connection Error: {ex.Message}");
+            }
+
+            // MySQL DbContext Setup
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                string connectionString = Configuration.GetConnectionString("DefaultConnection");
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            });
+
+            // Adding other services
             services.AddCors();
             services.AddControllers();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseCors(options => options
@@ -54,7 +84,6 @@ namespace dotnet_chat
             );
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

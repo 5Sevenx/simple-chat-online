@@ -1,17 +1,20 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppearanceComponent } from './appearance/appearance.component';
 
-export const routes: Routes = [{
-  path:'',
-  component: MainComponent,
-  children: [{
-    path:'profile', component: ProfileComponent
-  },{path:'appearance', component: AppearanceComponent},{
-    
-  }]
-},]
+const routes: Routes = [
+  { path: 'main', component: MainComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'appearance', component: AppearanceComponent },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '**', redirectTo: 'main' }
+];
 
 
-export class MainRoute{}
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class MainRoutingModule {}

@@ -11,7 +11,7 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
   ]
 })
 export class AuthModule { }

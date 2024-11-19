@@ -14,5 +14,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "dotnet_chat.Controllers.ChatController",
+    "Method": "Update",
+    "RelativePath": "api/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "WebApplication1.dtos.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
