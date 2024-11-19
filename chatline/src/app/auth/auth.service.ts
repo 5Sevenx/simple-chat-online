@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environments } from '../environments/environmets';
 import { User } from '../main/interface/user.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,23 @@ export class AuthService {
     return structuredClone(this.user)
   }
 
+  //Creating user
+  AddUser(name: string, passwd: string): void {
+    const userData = { NickName: name, Passwd: passwd };
+
+    // suscribe to observable for tracking changes
+    this.http.put<User>(`${this.baseUrl}/update`, userData).subscribe({
+      next: (response) => {
+        console.log('User added:', response);
+      },
+      error: (error) => {
+        console.error('Error adding user:', error);
+      },
+      complete: () => {
+        console.log('Request complete');
+      }
+    });
+  }
 
 
 

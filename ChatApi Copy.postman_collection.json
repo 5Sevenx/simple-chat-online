@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c7d1503d-b44b-4f0a-aee6-989342b2379f",
+		"_postman_id": "5a31193f-786a-48ca-8e97-9cfa5bbdb33a",
 		"name": "ChatApi Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "38831073"
@@ -39,6 +39,24 @@
 					}
 				},
 				"url": "http://localhost:8000/api/update"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/Delete/{id}"
 			},
 			"response": []
 		}

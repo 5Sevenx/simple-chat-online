@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "dotnet_chat.Controllers.ChatController",
+    "Method": "Delete",
+    "RelativePath": "api/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "dotnet_chat.Controllers.ChatController",
     "Method": "Message",
     "RelativePath": "api/messages",
     "HttpMethod": "POST",

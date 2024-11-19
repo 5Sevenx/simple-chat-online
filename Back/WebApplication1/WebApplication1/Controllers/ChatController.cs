@@ -2,6 +2,7 @@
 using dotnet_chat.dtos;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 using PusherServer;
@@ -33,18 +34,37 @@ namespace dotnet_chat.Controllers
             {
                 return BadRequest("Nickname and Password are required.");
             }
-            // Create a new User entity
+
+            // Check if the user with the same nickname already exists
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.NickName == dto.NickName);
+            if (existingUser != null)
+            {
+                return BadRequest("User already exists.");
+            }
+
+            // Find the highest existing ID
+            int newId = 1; // Default ID if no users exist
+            if (await _context.Users.AnyAsync())
+            {
+                newId = (int)(await _context.Users.MaxAsync(u => u.Id) + 1);
+            }
+
+            // Create a new User entity with the next ID
             var newUser = new User
             {
+                Id = newId,
                 NickName = dto.NickName,
                 Passwd = dto.Passwd
             };
+
             // Add the user to the database
             _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
+
             // Cache the user data (serialize it to JSON)
             var userJson = JsonConvert.SerializeObject(newUser);
             await _cache.SetStringAsync($"User_{newUser.Id}", userJson);
+
             // Return the response with cached user
             return Ok(new
             {
@@ -81,5 +101,32 @@ namespace dotnet_chat.Controllers
 
             return Ok(new string[] { });
         }
+
+
+        //Delete
+        [HttpDelete("Delete/{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            // found by id
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound("User does not exist.");
+            }
+
+            // User delete
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                Message = "User successfully deleted",
+                DeletedUser = user
+            });
+        }
+
+
+
     }
 }
