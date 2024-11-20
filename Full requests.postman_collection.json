@@ -1,46 +1,92 @@
 {
 	"info": {
-		"_postman_id": "c656d29a-253a-494c-b395-22e36a2a9cef",
-		"name": "Full requests",
+		"_postman_id": "2fe4c8e4-e774-46e9-abe0-86a976bc067b",
+		"name": "FullRequests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "38831073"
 	},
 	"item": [
 		{
-			"name": "MessageSend",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"john\",\r\n    \"message\":\"hi\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "POST",
+			"item": [
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"NickName\": \"dsaadaww\",\r\n  \"Passwd\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/create/"
+					},
+					"response": []
 				},
-				"url": "http://localhost:8000/api/messages"
-			},
-			"response": []
+				{
+					"name": "GetUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"NickName\": \"dsadaw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/getname"
+					},
+					"response": []
+				},
+				{
+					"name": "Getalluser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NickName\": \"newe\",\r\n    \"Passwd\": \"new13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/getall"
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"name": "CreateUser",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"NickName\": \"dsaadaww\",\r\n  \"Passwd\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:8000/api/create/"
-			},
-			"response": []
+			"name": "Pusher",
+			"item": [
+				{
+					"name": "MessageSend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"john\",\r\n    \"message\":\"hi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/messages"
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "DeleteUser",
@@ -57,24 +103,6 @@
 					}
 				},
 				"url": "http://localhost:8000/api/Delete/{id}"
-			},
-			"response": []
-		},
-		{
-			"name": "GetUser",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "\r\n{\r\n    \"NickName\": \"dsadaw\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:8000/api/getname"
 			},
 			"response": []
 		},
