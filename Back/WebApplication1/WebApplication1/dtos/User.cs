@@ -6,7 +6,7 @@ namespace WebApplication1.dtos
     public class User
     {
         public int? Id { get; set; }
-        public string NickName { set; get; }
-        public string Passwd { set; get; }
+        public string? NickName { set; get; }
+        public string? Passwd { set; get; }
     }
 }

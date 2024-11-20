@@ -26,8 +26,8 @@ namespace dotnet_chat.Controllers
         //Chaching temp
 
         //Creating user
-        [HttpPut("update")]
-        public async Task<ActionResult> Update(User dto)
+        [HttpPost("create")]
+        public async Task<ActionResult> Create(User dto)
         {
             // Check for valid nickname and password
             if (string.IsNullOrEmpty(dto.NickName) || string.IsNullOrEmpty(dto.Passwd))
@@ -103,8 +103,8 @@ namespace dotnet_chat.Controllers
         }
 
 
-        //Delete
-        [HttpDelete("Delete/{id}")]
+        //Delete user
+        [HttpDelete("delete/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             // found by id
@@ -126,6 +126,46 @@ namespace dotnet_chat.Controllers
             });
         }
 
+
+        //Search for name
+        [HttpPost("getname")]
+        public async Task<ActionResult> GetByNickname([FromBody] User dto)
+        {
+            // verify if the name is gaven 
+            if (string.IsNullOrEmpty(dto.NickName))
+            {
+                return BadRequest("Nickname of user required.");
+            }
+
+            // search for name
+            var existingUser = await _context.Users
+                                              .FirstOrDefaultAsync(u => u.NickName == dto.NickName);
+
+            if (existingUser == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Return user 
+            return Ok(existingUser);
+        }
+
+
+        [HttpPut("update")]
+        public async Task<ActionResult> UpdateUser(User user)
+        {
+            var userupdated = await _context.Users.FindAsync(user.Id);
+            if (userupdated == null)
+            {
+                return NotFound("User not found");
+            }
+
+            userupdated.NickName = user.NickName;
+            userupdated.Passwd = user.Passwd;
+            await _context.SaveChangesAsync();
+            return Ok(userupdated);
+
+        }
 
 
     }

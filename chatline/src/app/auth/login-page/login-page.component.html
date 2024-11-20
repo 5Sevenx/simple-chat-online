@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
   <div style="justify-content: space-between; display: flex; flex-direction: column; width: 300px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); align-items: center;">
-    <span style="font-size: 1.5rem; margin-bottom: 20px; text-align: center;">Create user</span>
+    <span style="font-size: 1.5rem; margin-bottom: 20px; text-align: center;">Login</span>
 
     <!-- formGroup -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
@@ -29,12 +29,12 @@
 </button>
 
 <!-- Already have account link -->
-<a href="auth/login" style="text-decoration: none; color: #7b32e6; font-weight: bold; box-sizing: border-box;
+<a href="auth" style="text-decoration: none; color: #7b32e6; font-weight: bold; box-sizing: border-box;
 display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;">
-Already have account?</a>
+Dont have account?</a>
 
     </form>
   </div>

@@ -25,7 +25,6 @@ export class AuthService {
   //Creating user
   AddUser(name: string, passwd: string): void {
     const userData = { NickName: name, Passwd: passwd };
-
     // suscribe to observable for tracking changes
     this.http.put<User>(`${this.baseUrl}/update`, userData).subscribe({
       next: (response) => {
@@ -40,7 +39,7 @@ export class AuthService {
     });
   }
 
-  isAuthenticated(): boolean {
+  isAuthentiated(): boolean {
     return !!this.currentUser;
   }
 
