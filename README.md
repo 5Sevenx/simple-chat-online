@@ -36,7 +36,7 @@
     });
     ```
 
-  - **Steps to Setup**:  
+- **Steps to Setup**:  
   - **1.** Apply migrations:  
     ```bash
     Add-Migration initial
@@ -66,7 +66,6 @@
 
 ### 2. **Frontend**  
 - **Technology**: Developed using **Angular**.  
-- **Role**: Provides the user interface.  
 - **Steps to Setup**:  
   - **1.** Clone the frontend repository.
   - **2.** Install dependencies using:
