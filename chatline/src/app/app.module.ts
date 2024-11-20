@@ -21,7 +21,6 @@ import { MainModule } from './main/main-module.module';
     AuthRoutingModule,
     MainModule,
     ReactiveFormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,9 +3,14 @@
   <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem; height: 100%; position: fixed; left: 0; top: 0;">
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li *ngFor="let item of sidebaritems" class="nav-item" [routerLinkActive]="'active'">
-        <a [routerLink]="item.url" class="nav-link py-3 border-bottom" data-bs-toggle="tooltip" data-bs-placement="right">
-          <img [src]="item.icon" [alt]="item.label" style="width: 24px; height: 24px;">
-        </a>
+        <a [routerLink]="item.url"
+   class="nav-link py-3 border-bottom"
+   [routerLinkActive]="'active'"
+   [routerLinkActiveOptions]="{ exact: true }">
+   <img [src]="item.icon" [alt]="item.label" style="width: 24px; height: 24px;">
+</a>
+
+
       </li>
 
     </ul>

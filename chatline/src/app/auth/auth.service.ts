@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environments } from '../environments/environmets';
 import { User } from '../main/interface/user.interface';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,18 +43,16 @@ export class AuthService {
     return !!this.currentUser;
   }
 
-  LogUser(name: string, passwd: string): void {
-    const userData = {NickName: name, Passwd: passwd};
-
-    this.http.post<User>(`${this.baseUrl}/getall`, userData).subscribe({
-        next: (response) => {
-            console.log('User logged in:', response);
-        },
-        error: (err) => {
-            console.log('Login failed:', err);
-        }
-    });
-}
+  LogUser(username: string, password: string): Observable<boolean> {
+    const loginData = { username, password };
+    return this.http.post<User>(`${this.baseUrl}/auth/login`, loginData).pipe(
+      tap(user => {
+        this.user = user; 
+      }),
+      map(() => true),
+      catchError(() => of(false))
+    );
+  }
 
 
 
