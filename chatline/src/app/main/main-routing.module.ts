@@ -5,11 +5,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { AppearanceComponent } from './appearance/appearance.component';
 
 const routes: Routes = [
-  { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'appearance', component: AppearanceComponent },
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: '**', redirectTo: 'main' }
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' }
 ];
 
 

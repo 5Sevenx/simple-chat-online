@@ -25,6 +25,7 @@ namespace dotnet_chat.Controllers
         }
         //Chaching temp
 
+
         //Creating user
         [HttpPost("create")]
         public async Task<ActionResult> Create(User dto)
@@ -150,7 +151,7 @@ namespace dotnet_chat.Controllers
             return Ok(existingUser);
         }
 
-
+        //Update user
         [HttpPut("update")]
         public async Task<ActionResult> UpdateUser(User user)
         {
@@ -167,6 +168,35 @@ namespace dotnet_chat.Controllers
 
         }
 
+
+        //Search for name adn passwd
+        [HttpPost("getall")]
+        public async Task<ActionResult> GetAll([FromBody] User dto)
+        {
+            
+            if (string.IsNullOrEmpty(dto.NickName) || string.IsNullOrEmpty(dto.Passwd))
+            {
+                return BadRequest("Password and Nickname required");
+            }
+
+            // search for user with this name
+            var existingUser = await _context.Users
+                                              .FirstOrDefaultAsync(u => u.NickName == dto.NickName);
+
+            if (existingUser == null)
+            {
+                return BadRequest("User not found");
+            }
+
+           
+            if (existingUser.Passwd != dto.Passwd)
+            {
+                return BadRequest("Password is incorrect");
+            }
+
+           
+            return Ok(existingUser);
+        }
 
     }
 }

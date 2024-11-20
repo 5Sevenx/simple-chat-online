@@ -1,19 +1,24 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { FormBuilder, FormGroup,Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorService } from '../validators/validators.service';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styles: ``
 })
 export class LoginPageComponent {
   loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private validatorService: ValidatorService) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(6),
+
+        this.validatorService.validateUserCredentials('', '')
+      ]],
     });
   }
 
@@ -29,7 +34,7 @@ export class LoginPageComponent {
     }
 
     const { username, password } = this.loginForm.value;
-    this.authService.AddUser(username, password);
+    this.authService.LogUser(username, password);
     console.log('Submitting:', username, password);
   }
 }

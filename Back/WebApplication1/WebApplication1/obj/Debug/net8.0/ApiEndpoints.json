@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "dotnet_chat.Controllers.ChatController",
+    "Method": "GetAll",
+    "RelativePath": "api/getall",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "WebApplication1.dtos.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "dotnet_chat.Controllers.ChatController",
     "Method": "GetByNickname",
     "RelativePath": "api/getname",
     "HttpMethod": "POST",

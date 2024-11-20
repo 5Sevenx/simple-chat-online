@@ -43,6 +43,18 @@ export class AuthService {
     return !!this.currentUser;
   }
 
+  LogUser(name: string, passwd: string): void {
+    const userData = {NickName: name, Passwd: passwd};
+
+    this.http.post<User>(`${this.baseUrl}/getall`, userData).subscribe({
+        next: (response) => {
+            console.log('User logged in:', response);
+        },
+        error: (err) => {
+            console.log('Login failed:', err);
+        }
+    });
+}
 
 
 
