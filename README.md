@@ -36,7 +36,7 @@
     });
     ```
 
-  - **Steps to Setup**:  
+- **Steps to Setup**:  
   - **1.** Apply migrations:  
     ```bash
     Add-Migration initial
