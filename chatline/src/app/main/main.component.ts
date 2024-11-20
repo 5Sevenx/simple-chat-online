@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +12,9 @@ import Pusher from 'pusher-js';
 export class MainComponent implements OnInit{
 
   // Injection
-  constructor(private http: HttpClient){}
+  constructor(
+    private http: HttpClient,
+  ) {}
 
 
   // Pusher
@@ -39,6 +43,8 @@ export class MainComponent implements OnInit{
     this.http.post('http://localhost:8000/api/messages',{username:this.username,message:this.message}
     ).subscribe( () => this.message = '')
   }
+
+
 
 
 }

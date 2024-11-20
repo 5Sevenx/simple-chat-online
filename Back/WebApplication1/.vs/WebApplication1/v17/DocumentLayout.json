@@ -29,32 +29,6 @@
           "SelectedChildIndex": 8,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Data.cs",
-              "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Data\\Data.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Data\\Data.cs",
-              "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Data\\Data.cs",
-              "RelativeToolTip": "WebApplication1\\Data\\Data.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:58:22.166Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\dtos\\User.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\dtos\\User.cs",
-              "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\dtos\\User.cs",
-              "RelativeToolTip": "WebApplication1\\dtos\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:55:27.938Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
@@ -80,13 +54,37 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Data.cs",
+              "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Data\\Data.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Data\\Data.cs",
+              "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Data\\Data.cs",
+              "RelativeToolTip": "WebApplication1\\Data\\Data.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:58:22.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\dtos\\User.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\dtos\\User.cs",
+              "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\dtos\\User.cs",
+              "RelativeToolTip": "WebApplication1\\dtos\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:55:27.938Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ChatController.cs",
               "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Controllers\\ChatController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ChatController.cs",
               "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Controllers\\ChatController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\ChatController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwG0AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwEwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T15:45:43.277Z",
               "EditorCaption": ""
@@ -101,8 +99,7 @@
               "RelativeToolTip": "WebApplication1\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T10:32:08.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T10:32:08.766Z"
             }
           ]
         }
