@@ -4,26 +4,23 @@
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li *ngFor="let item of sidebaritems" class="nav-item p-2" [routerLinkActive]="'active'">
         <a [routerLink]="item.url"
-   class="nav-link py-3 border-bottom"
-   [routerLinkActive]="'active'"
-   [routerLinkActiveOptions]="{ exact: true }">
-   <img [src]="item.icon" [alt]="item.label" style="width: 24px; height: 24px;">
-</a>
-
-
+           class="nav-link py-3 border-bottom"
+           [routerLinkActive]="'active'"
+           [routerLinkActiveOptions]="{ exact: true }">
+           <img [src]="item.icon" [alt]="item.label" style="width: 24px; height: 24px;">
+        </a>
       </li>
-
     </ul>
-    <div class="dropdown border-top">
-      <a href="chat/profile" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="border-top">
+      <a href="chat/profile" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none" id="dropdownUser3" aria-expanded="false">
         <img src="assets/img/svg/defimg.svg" alt="">
       </a>
     </div>
   </div>
 
-  <!-- Main content area (content will now be pushed to the right of the sidebar) -->
-  <div class="container-fluid" style="margin-left: 1.5rem;">
-    <!-- Your main content here -->
-    <router-outlet></router-outlet> <!-- Display routed component -->
+  <!-- Main content area -->
+  <div class="container-fluid" style="margin-left: 4.5rem; padding: 0;">
+    <!-- Your main content -->
+  
   </div>
 </div>

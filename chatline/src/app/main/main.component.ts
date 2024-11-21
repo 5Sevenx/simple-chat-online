@@ -12,12 +12,15 @@ import { User } from './interface/user.interface';
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit{
-
+  // Other
+  username:string = '';
+  message: string = '';
+  messages = [
+    { username: '', message: '' },
+  ];
   // Injection
   constructor(
-    private http: HttpClient,
-    private service: MainServiceService
-  ) {}
+    private http: HttpClient,private service: MainServiceService) {}
 
 
   // Pusher
@@ -33,20 +36,25 @@ export class MainComponent implements OnInit{
       this.messages.push(data)
     });
 
-    const user = this.currUser();
-    if (user) {
-      this.username = user.name;
+    this.username = this.service.getUsername();
+
+    console.log('Username before check:', this.username);
+    if (this.username) {
+      console.log('holaaaa')
+      this.service.getUserByName(this.username).subscribe(user => {
+        this.service.setCurrentUser(user);
+        this.username = user.name;
+      });
     }
 
+    const user = this.service.getCurrentUser();
+    if (user){
+      this.username = user.name
+    }
 
   }
 
-  // Other
-  username:string = '';
-  message: string = '';
-  messages = [
-    { username: '', message: '' },
-  ];
+
 
   // http post
   submit():void{
@@ -54,8 +62,6 @@ export class MainComponent implements OnInit{
     ).subscribe( () => this.message = '')
   }
 
-  currUser():User | null{
-    return this.service.getCurrentUser()
-  }
+
 
 }

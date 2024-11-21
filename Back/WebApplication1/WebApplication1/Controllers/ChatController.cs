@@ -181,7 +181,7 @@ namespace dotnet_chat.Controllers
             }
 
             // search for user with this name
-            var existingUser = await _context.Users
+            var existingUser = await _context.Users 
                                               .FirstOrDefaultAsync(u => u.NickName == dto.NickName);
 
             if (existingUser == null)
