@@ -32,27 +32,37 @@ export class MainComponent implements OnInit{
     });
 
     const channel = pusher.subscribe('chat');
-    channel.bind('message', (data: any)  => {
-      this.messages.push(data)
+    channel.bind('message', (data: any) => {
+      this.messages.push(data);
     });
 
-    this.username = this.service.getUsername();
-
-    console.log('Username before check:', this.username);
-    if (this.username) {
-      console.log('holaaaa')
-      this.service.getUserByName(this.username).subscribe(user => {
-        this.service.setCurrentUser(user);
-        this.username = user.name;
-      });
-    }
 
     const user = this.service.getCurrentUser();
-    if (user){
-      this.username = user.name
+    if (user) {
+      this.username = user.name;
+      console.log('Current user:', this.username);
+    } else {
+      console.log('No user found');
     }
 
+
+    if (!this.username) {
+      this.username = this.service.getUsername();
+      if (this.username) {
+        this.service.getUserByName(this.username).subscribe(user => {
+          this.service.setCurrentUser(user);
+          this.username = user.name;
+          console.log('User fetched from API:', this.username);
+        });
+      }
+    }
+    const user2 = this.service.getCurrentUser();
+    console.log('Current user from service:', user); 
+    if (user2) {
+      this.username = user2.name;
+    }
   }
+
 
 
 
