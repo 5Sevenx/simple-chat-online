@@ -1,6 +1,6 @@
 # Project Setup
 
-## Requirements
+<h3>Requirements:</h3>
 
 ### 1. **Backend**  
 - **Technology**: Built with **C# .NET**.  
@@ -112,12 +112,12 @@
 > - **Swashbuckle.AspNetCore**
 > - **Microsoft.EntityFrameworkCore.Tools**
 
-
+---
 
 > [!Warning]
 > All Microsoft packages must be below version 9. If they are not, they could cause errors in the code.
 
-
+---
 
 > [!NOTE]
 > If you see this, it means the project is still in development, so it will receive updates in the future.Or I just forgot to delete it.
