@@ -34,15 +34,12 @@ export class AuthService {
     );
   }
 
-  isAuthentiated(): boolean {
-    return !!this.currentUser;
-  }
 
   LogUser(username: string, password: string): Observable<boolean> {
-    const loginData = { username, password };
+    const loginData = { NickName:username, Passwd:password };
     return this.http.post<User>(`${this.baseUrl}/getall`, loginData).pipe(
       tap(user => {
-        
+
         this.mainservice.setCurrentUser(user);
       }),
       map(() => true),

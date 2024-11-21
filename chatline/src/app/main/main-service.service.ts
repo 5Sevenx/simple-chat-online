@@ -9,7 +9,7 @@ import { environments } from '../environments/environmets';
 })
 export class MainServiceService {
   private currentUser: User | null = null;
-  private baseUrl = 'http://localhost:8000/api';
+  private baseUrl = environments.baseUrl;
   constructor(private http: HttpClient) {}
 
 

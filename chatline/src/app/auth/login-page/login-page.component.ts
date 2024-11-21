@@ -15,13 +15,12 @@ export class LoginPageComponent {
     private authService: AuthService,
     private fb: FormBuilder,
     private validatorService: ValidatorService,
-    private router: Router 
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [
         Validators.required,
-        Validators.minLength(6),
         this.validatorService.validateUserCredentials('', '')
       ]],
     });

@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|c:\\users\\alex.alyeksyeyenko\\desktop\\chatline\\back\\webapplication1\\webapplication1\\dtos\\messagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\dtos\\messagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|c:\\users\\alex.alyeksyeyenko\\desktop\\chatline\\back\\webapplication1\\webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|c:\\users\\alex.alyeksyeyenko\\desktop\\chatline\\back\\webapplication1\\webapplication1\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|c:\\users\\alex.alyeksyeyenko\\desktop\\chatline\\back\\webapplication1\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|c:\\users\\alex.alyeksyeyenko\\desktop\\chatline\\back\\webapplication1\\webapplication1\\dtos\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +27,8 @@
       "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\data\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|c:\\users\\alex.alyeksyeyenko\\desktop\\chatline\\back\\webapplication1\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|c:\\users\\alex.alyeksyeyenko\\desktop\\chatline\\back\\webapplication1\\webapplication1\\dtos\\messagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A26A105B-DAA0-4256-9A70-CCBB8F92991C}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\dtos\\messagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +66,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Startup.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Startup.cs",
+              "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Startup.cs",
+              "RelativeToolTip": "WebApplication1\\Startup.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAwwDMAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T12:40:15.857Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApplication1\\appsettings.json",
+              "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\appsettings.json",
+              "RelativeToolTip": "WebApplication1\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-21T12:40:05.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "MessagesDTO.cs",
               "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\dtos\\MessagesDTO.cs",
               "RelativeDocumentMoniker": "WebApplication1\\dtos\\MessagesDTO.cs",
@@ -70,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Data.cs",
               "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Data\\Data.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Data\\Data.cs",
@@ -82,13 +114,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\dtos\\User.cs",
               "RelativeDocumentMoniker": "WebApplication1\\dtos\\User.cs",
               "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\dtos\\User.cs",
               "RelativeToolTip": "WebApplication1\\dtos\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T16:55:27.938Z"
             },
@@ -100,14 +132,14 @@
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ChatController.cs",
               "ToolTip": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Controllers\\ChatController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\ChatController.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAowBkAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAcwLUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T15:45:43.277Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\alex.alyeksyeyenko\\Desktop\\Chatline\\Back\\WebApplication1\\WebApplication1\\Program.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
