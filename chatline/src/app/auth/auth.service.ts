@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environments } from '../environments/environmets';
 import { User } from '../main/interface/user.interface';
 import { catchError, map, Observable, of, tap } from 'rxjs';
+import { MainServiceService } from '../main/main-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
   private baseUrl = environments.baseUrl;
   private user?:User;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private mainservice:MainServiceService) { }
 
 
 
@@ -23,20 +24,14 @@ export class AuthService {
   }
 
   //Creating user
-  AddUser(name: string, passwd: string): void {
+  AddUser(name: string, passwd: string): Observable<User> {
     const userData = { NickName: name, Passwd: passwd };
-    // suscribe to observable for tracking changes
-    this.http.put<User>(`${this.baseUrl}/update`, userData).subscribe({
-      next: (response) => {
-        console.log('User added:', response);
-      },
-      error: (error) => {
-        console.error('Error adding user:', error);
-      },
-      complete: () => {
-        console.log('Request complete');
-      }
-    });
+    return this.http.post<User>(`${this.baseUrl}/create`, userData).pipe(
+      tap(user => {
+
+        this.mainservice.setCurrentUser(user);
+      })
+    );
   }
 
   isAuthentiated(): boolean {
@@ -45,9 +40,10 @@ export class AuthService {
 
   LogUser(username: string, password: string): Observable<boolean> {
     const loginData = { username, password };
-    return this.http.post<User>(`${this.baseUrl}/auth/login`, loginData).pipe(
+    return this.http.post<User>(`${this.baseUrl}/getall`, loginData).pipe(
       tap(user => {
-        this.user = user; 
+        
+        this.mainservice.setCurrentUser(user);
       }),
       map(() => true),
       catchError(() => of(false))

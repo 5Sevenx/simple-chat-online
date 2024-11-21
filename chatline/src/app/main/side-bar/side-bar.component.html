@@ -2,7 +2,7 @@
   <!-- Sidebar -->
   <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem; height: 100%; position: fixed; left: 0; top: 0;">
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-      <li *ngFor="let item of sidebaritems" class="nav-item" [routerLinkActive]="'active'">
+      <li *ngFor="let item of sidebaritems" class="nav-item p-2" [routerLinkActive]="'active'">
         <a [routerLink]="item.url"
    class="nav-link py-3 border-bottom"
    [routerLinkActive]="'active'"

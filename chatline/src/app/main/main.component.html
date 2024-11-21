@@ -1,36 +1,39 @@
 <div class="container-fluid d-flex" style="height: 100vh;">
-  <!-- Sidebar (используем компонент) -->
+  <!-- Sidebar -->
   <app-side-bar></app-side-bar>
 
   <!-- Main content -->
   <div class="d-flex flex-column flex-grow-1">
     <div class="row flex-grow-1">
-      <!-- Messages -->
-      <div class="col-3">
-        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
-          <div class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+
+      <!-- Left Sidebar (username input) -->
+      <div class="col-3 ">
+        <div class="d-flex flex-column ">
+          <div class="d-flex flex-shrink-0 m-3 link-dark text-decoration-none border-bottom p-2">
             <input class="fs-5 fw-semibold" [(ngModel)]="username" />
           </div>
         </div>
       </div>
 
-      <!-- Input -->
+      <!-- Right Main Content (Messages & Input) -->
       <div class="col d-flex flex-column p-3">
-        <!-- messages -->
+
+        <!-- Messages -->
         <div class="list-group list-group-flush border-bottom scrollarea" style="max-height: 70vh; overflow-y: auto;">
           <div class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true" *ngFor="let msg of messages">
-            <div class="d-flex w-100 align-items-center justify-content-between">
+            <div class="d-flex w-100 align-items-center justify-content-between p-2">
               <strong class="mb-1">{{msg.username}}</strong>
             </div>
             <div class="d-flex w-100 align-items-center justify-content-between">{{msg.message}}</div>
           </div>
         </div>
 
-        <!-- input bottom -->
+        <!-- Input Form -->
         <form class="mb-3 mt-auto" (submit)="submit()">
           <input class="form-control" placeholder="Write a message" [(ngModel)]="message" name="message" />
         </form>
       </div>
+
     </div>
   </div>
 </div>

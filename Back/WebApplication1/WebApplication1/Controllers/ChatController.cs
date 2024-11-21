@@ -116,6 +116,7 @@ namespace dotnet_chat.Controllers
                 return NotFound("User does not exist.");
             }
 
+
             // User delete
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();

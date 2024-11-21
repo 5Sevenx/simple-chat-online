@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Route, Router } from '@angular/router';
+import { ValidatorService } from '../validators/validators.service';
 
 @Component({
   selector: 'app-auth-page',
@@ -9,7 +11,10 @@ import { AuthService } from '../auth.service';
 export class AuthPageComponent {
   loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(private authService: AuthService,
+    private fb: FormBuilder,
+    private validatorService: ValidatorService,
+    private router: Router ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -28,7 +33,12 @@ export class AuthPageComponent {
     }
 
     const { username, password } = this.loginForm.value;
-    this.authService.AddUser(username, password);
-    console.log('Submitting:', username, password);
+    this.authService.AddUser(username, password).subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['/main']);
+      } else {
+        console.log('Invalid login credentials');
+      }
+    });
   }
 }
