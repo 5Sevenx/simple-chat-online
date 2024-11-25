@@ -4,7 +4,7 @@ import { MainComponent } from './main/main.component';
 import { AuthPageComponent } from './auth/auth-page/auth-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/chat', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   {
     path: 'chat',
     loadChildren: () => import('./main/main-module.module').then(m => m.MainModule)
@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
-  { path: '**', redirectTo: '/chat' },
+  { path: '**', redirectTo: '/auth' },
 ];
 
 @NgModule({

@@ -22,48 +22,25 @@ export class MainComponent implements OnInit{
   constructor(
     private http: HttpClient,private service: MainServiceService) {}
 
-
-  // Pusher
   ngOnInit(): void {
+    // Pusher
     Pusher.logToConsole = true;
-
     const pusher = new Pusher('de0d85dfc195bed6c21c', {
       cluster: 'eu'
     });
-
     const channel = pusher.subscribe('chat');
     channel.bind('message', (data: any) => {
       this.messages.push(data);
     });
-
-
-    const user = this.service.getCurrentUser();
-    if (user) {
-      this.username = user.name;
-      console.log('Current user:', this.username);
-    } else {
-      console.log('No user found');
-    }
-
-
+    //setuser
     if (!this.username) {
       this.username = this.service.getUsername();
-      if (this.username) {
-        this.service.getUserByName(this.username).subscribe(user => {
-          this.service.setCurrentUser(user);
-          this.username = user.name;
-          console.log('User fetched from API:', this.username);
-        });
+      console.log(this.username)
+      if(!this.username){
+        console.log(`${this.username} dont exist`)
       }
     }
-    const user2 = this.service.getCurrentUser();
-    console.log('Current user from service:', user); 
-    if (user2) {
-      this.username = user2.name;
-    }
   }
-
-
 
 
   // http post
@@ -71,7 +48,4 @@ export class MainComponent implements OnInit{
     this.http.post('http://localhost:8000/api/messages',{username:this.username,message:this.message}
     ).subscribe( () => this.message = '')
   }
-
-
-
 }
