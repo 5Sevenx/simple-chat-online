@@ -35,7 +35,7 @@ export class AuthPageComponent {
     const { username, password } = this.loginForm.value;
     this.authService.AddUser(username, password).subscribe(isLoggedIn => {
       if (isLoggedIn) {
-        this.router.navigate(['/main']);
+        this.router.navigate(['/chat']);
       } else {
         console.log('Invalid login credentials');
       }

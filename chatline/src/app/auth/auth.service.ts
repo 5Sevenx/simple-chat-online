@@ -30,16 +30,15 @@ export class AuthService {
     );
   }
   //LogUser
-  LogUser(username: string, password: string): Observable<boolean> {
-    const loginData = { NickName:username, Passwd:password };
+  LogUser(name: string, passwd: string): Observable<User | null> {
+    const loginData = { NickName: name, Passwd: passwd };
     return this.http.post<User>(`${this.baseUrl}/getall`, loginData).pipe(
       tap(user => {
-
-        this.mainservice.setCurrentUser((user as any).user);
-        console.log(user)
+        this.mainservice.setCurrentUser(user); 
+        console.log('User logged in:', user);
       }),
-      map(() => true),
-      catchError(() => of(false))
+      map(user => user || null),
+      catchError(() => of(null))
     );
   }
 }

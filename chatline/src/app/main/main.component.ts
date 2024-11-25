@@ -40,6 +40,15 @@ export class MainComponent implements OnInit{
         console.log(`${this.username} dont exist`)
       }
     }
+
+    //getuser from login
+    this.username = this.service.getUserLogin();
+    console.log(this.username);
+
+
+    if (!this.username) {
+      console.log('User is not logged in');
+    }
   }
 
 
@@ -48,4 +57,5 @@ export class MainComponent implements OnInit{
     this.http.post('http://localhost:8000/api/messages',{username:this.username,message:this.message}
     ).subscribe( () => this.message = '')
   }
+  
 }

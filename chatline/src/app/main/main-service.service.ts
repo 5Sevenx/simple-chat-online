@@ -19,5 +19,15 @@ export class MainServiceService {
     return this.currentUser ? this.currentUser.nickName : '';
   }
 
+  getUserLogin(): string {
+    return this.currentUser ? this.currentUser.nickName : '';
+  }
+
+  getUserForLogin(): User {
+    if (!this.currentUser) {
+      throw new Error('No current user found');
+    }
+    return this.currentUser;
+  }
 
 }

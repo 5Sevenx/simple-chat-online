@@ -10,6 +10,7 @@ import { ValidatorService } from '../validators/validators.service';
 })
 export class LoginPageComponent {
   loginForm: FormGroup;
+  errorMessage: string = '';
 
   constructor(
     private authService: AuthService,
@@ -33,16 +34,16 @@ export class LoginPageComponent {
 
   onSubmit() {
     if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched();
+      this.loginForm.markAllAsTouched(); // mark as touched for error
       return;
     }
 
     const { username, password } = this.loginForm.value;
-    this.authService.LogUser(username, password).subscribe(isLoggedIn => {
-      if (isLoggedIn) {
-        this.router.navigate(['/main']);
+    this.authService.LogUser(username, password).subscribe(user => {
+      if (user) {
+        this.router.navigate(['/chat']);
       } else {
-        console.log('Invalid login credentials');
+        this.errorMessage = 'Invalid username or password';
       }
     });
   }
