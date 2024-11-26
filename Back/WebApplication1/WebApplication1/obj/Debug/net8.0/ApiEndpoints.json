@@ -33,6 +33,27 @@
   },
   {
     "ContainingType": "dotnet_chat.Controllers.ChatController",
+    "Method": "EditImg",
+    "RelativePath": "api/editimg/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "img",
+        "Type": "WebApplication1.dtos.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "dotnet_chat.Controllers.ChatController",
     "Method": "GetAll",
     "RelativePath": "api/getall",
     "HttpMethod": "POST",
@@ -42,6 +63,22 @@
       {
         "Name": "dto",
         "Type": "WebApplication1.dtos.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "dotnet_chat.Controllers.ChatController",
+    "Method": "GetImg",
+    "RelativePath": "api/getimg/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

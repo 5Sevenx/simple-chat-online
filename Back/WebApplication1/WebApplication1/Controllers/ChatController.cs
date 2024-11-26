@@ -15,7 +15,7 @@ namespace dotnet_chat.Controllers
     [ApiController]
     public class ChatController : Controller
     {
-        //-----------------------------------------------------------------------------------------REDISCACHE--------------------------------------------------------------------------
+        //=============================================================================REDISCACHE=============================================================================
         //Chaching temp
         private readonly ApplicationDbContext _context;
         private readonly IDistributedCache _cache;
@@ -24,7 +24,7 @@ namespace dotnet_chat.Controllers
             _context = context;
             _cache = cache;
         }
-        //-----------------------------------------------------------------------------------------CREATEUSER--------------------------------------------------------------------------
+        //=============================================================================CREATEUSER=============================================================================
         //Creating user
         [HttpPost("create")]
         public async Task<ActionResult> Create(User dto)
@@ -72,7 +72,7 @@ namespace dotnet_chat.Controllers
                 User = newUser
             });
         }
-        //-----------------------------------------------------------------------------------------PUSHERAPI--------------------------------------------------------------------------
+        //=============================================================================PUSHERAPI=============================================================================
         //Messages sender + API
         [HttpPost("messages")]
         public async Task<ActionResult> Message(MessageDTO dto)
@@ -100,7 +100,7 @@ namespace dotnet_chat.Controllers
 
             return Ok(new string[] { });
         }
-        //-----------------------------------------------------------------------------------------DELETUSER--------------------------------------------------------------------------
+        //=============================================================================DELETUSER=============================================================================
         //Delete user
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult> Delete(int id)
@@ -125,7 +125,7 @@ namespace dotnet_chat.Controllers
             });
         }
 
-        //-----------------------------------------------------------------------------------------SEARCHFORNAME-------------------------------------------------------------------------
+        //=============================================================================SEARCHFORNAME=============================================================================
         //Search for name
         [HttpPost("getname")]
         public async Task<ActionResult> GetByNickname([FromBody] User dto)
@@ -148,7 +148,7 @@ namespace dotnet_chat.Controllers
             // Return user 
             return Ok(existingUser);
         }
-        //-----------------------------------------------------------------------------------------UPDATEUSER--------------------------------------------------------------------------
+        //=============================================================================UPDATEUSER=============================================================================
         //Update user
         [HttpPut("update/{id}")]
         public async Task<ActionResult> UpdateUser(int id, [FromBody] User user)
@@ -170,7 +170,7 @@ namespace dotnet_chat.Controllers
             return Ok(userToUpdate);
         }
 
-        //-------------------------------------------------------------------GETALL---------------------------------------------------------------------------------------------------
+        //=============================================================================GETALL=============================================================================
         //Search for name adn passwd
         [HttpPost("getall")]
         public async Task<ActionResult> GetAll([FromBody] User dto)
@@ -193,7 +193,7 @@ namespace dotnet_chat.Controllers
 
             return Ok(existingUser);
         }
-        //-----------------------------------------------------------------------------------------GETUSER--------------------------------------------------------------------------
+        //=============================================================================GETUSER=============================================================================
         [HttpGet("getuser/{id}")]
         public async Task<ActionResult> GetUser(int id)
         {
@@ -201,5 +201,33 @@ namespace dotnet_chat.Controllers
             if (existid == null) return NotFound("User not found by this ID");
             return Ok(existid);
         }
+        //=============================================================================GETIMG=============================================================================
+        [HttpGet("getimg/{id}")]
+        public async Task<ActionResult> GetImg(int id)
+        {
+            var existuser = await _context.Users.FindAsync(id);
+            if (existuser == null) return NotFound("User not found");
+
+            if (string.IsNullOrEmpty(existuser.avatarUrl))
+            {
+                return Ok("User has default avatar");
+            }
+            return Ok(existuser.avatarUrl);
+        }
+        //=============================================================================EDITIMG=============================================================================
+        [HttpPut("editimg/{id}")]
+        public async Task<ActionResult> EditImg(int id, [FromBody] User img)
+        {
+            var existuser = await _context.Users.FindAsync(id);
+            if (existuser == null) return NotFound("User not found");
+
+            existuser.avatarUrl = img.avatarUrl; 
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Avatar updated successfully");
+        }
+
+
     }
 }

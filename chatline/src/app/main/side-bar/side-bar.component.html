@@ -12,8 +12,9 @@
       </li>
     </ul>
     <div class="border-top">
+      <p></p>
       <a href="chat/profile" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none" id="dropdownUser3" aria-expanded="false">
-        <img src="assets/img/svg/defimg.svg" alt="">
+        <img [src]="userImageUrl || 'assets/img/svg/defimg.svg'" alt="User Avatar" style="width: 30px; height: 30px; border-radius: 50%;">
       </a>
     </div>
   </div>
@@ -21,6 +22,6 @@
   <!-- Main content area -->
   <div class="container-fluid" style="margin-left: 4.5rem; padding: 0;">
     <!-- Your main content -->
-  
+
   </div>
 </div>

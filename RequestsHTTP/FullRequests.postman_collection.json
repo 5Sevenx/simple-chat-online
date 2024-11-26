@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c7604902-abb9-4062-9253-2d9eec42a0d7",
+		"_postman_id": "44863ffa-ff20-4dd1-9eeb-08de9a744d76",
 		"name": "FullRequests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "38831073"
@@ -126,6 +126,22 @@
 		},
 		{
 			"name": "GetUser",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetImg",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "AddImg",
 			"request": {
 				"method": "GET",
 				"header": []

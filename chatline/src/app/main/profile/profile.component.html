@@ -1,31 +1,20 @@
 <div class="container-fluid d-flex" style="height: 100vh;">
-  <!-- Sidebar -->
   <app-side-bar></app-side-bar>
-
-  <!-- Main content -->
   <div class="d-flex flex-column flex-grow-1">
     <div class="row flex-grow-1">
-      <!-- Content -->
       <div class="d-flex flex-column align-items-center" style="width: 100%; padding: 1rem;">
-        <!-- Image -->
-        <img src="assets/img/svg/defimg.svg" alt="Avatar" style="width: 300px; height: 300px; border-radius: 50%; margin-bottom: 0.5rem;">
-        <p>{{currentname}}</p>
+        <img [src]="userImageUrl" alt="Avatar" style="width: 300px; height: 300px; border-radius: 50%; margin-bottom: 0.5rem;">
+        <p>{{ currentname }}</p>
         <hr>
-        <!-- Input for name and button aligned horizontally -->
         <div class="d-flex align-items-center w-25 mb-3">
           <input [(ngModel)]="newName" type="text" class="form-control" placeholder="Edit name">
-          <!-- Button next to the input -->
           <button (click)="submit()" class="btn btn-primary ms-2">Upload</button>
         </div>
         <hr>
-        <!-- Input for image URL and button aligned horizontally -->
         <div class="d-flex align-items-center w-25">
-          <input type="text" class="form-control" placeholder="URL to img">
-          <!-- Button next to the input -->
-          <button class="btn btn-secondary ms-2">Upload</button>
+          <input [(ngModel)]="userImageUrl" type="text" class="form-control" placeholder="URL to img">
+          <button (click)="submitImageUrl()" class="btn btn-secondary ms-2">Upload</button>
         </div>
-
-        <!-- Delete -->
         <div class="d-flex align-items-center p-5">
           <button (click)="submitOnDelete()" class="btn btn-danger ms-2">Delete account</button>
         </div>

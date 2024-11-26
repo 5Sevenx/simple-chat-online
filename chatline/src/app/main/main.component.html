@@ -17,8 +17,14 @@
 
       <!-- Right Main Content (Messages & Input) -->
       <div class="col d-flex flex-column p-3">
-        <div class="d-flex justify-content-end">
-          <p class="mb-1" style="font-size: 1rem; color: black;font-weight: bold;">{{this.username}}</p>
+        <div class="d-flex align-items-center justify-content-end mb-1">
+          <!-- Display user image -->
+          <img [src]="img || 'assets/img/svg/defimg.svg'" alt="User Avatar" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;">
+
+
+          <!-- Display username -->
+          <p class="mb-0" style="font-size: 1rem; color: black; font-weight: bold;">
+            {{username}}</p>
         </div>
 
         <!-- Messages -->

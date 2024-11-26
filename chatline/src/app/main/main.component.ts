@@ -11,9 +11,11 @@ import Pusher from 'pusher-js';
 export class MainComponent implements OnInit {
   username: string = '';
   message: string = '';
+  img:string = '';
   messages = [
     { username: '', message: '' },
   ];
+
 
   constructor(
     private http: HttpClient,
@@ -21,6 +23,7 @@ export class MainComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadUserAvatar();
     // Pusher initialization
     Pusher.logToConsole = true;
     const pusher = new Pusher('de0d85dfc195bed6c21c', {
@@ -32,12 +35,33 @@ export class MainComponent implements OnInit {
     });
 
 
+    //below im doing the same thing twice because i want the same result for both
+
+
+    this.img = this.service.getImgUser();
+
+    if (this.img) {
+      const currentUserImg = this.service.getCurrentUser();
+      if (currentUserImg) {
+        this.service.checkAndUpdateUserImg(currentUserImg).subscribe(
+          (updatedUserImg) => {
+            if (updatedUserImg.avatarUrl !== this.img) {
+              this.img = updatedUserImg.avatarUrl;
+            }
+            console.log('User image checked and updated:', updatedUserImg);
+          },
+          (err) => {
+            console.error('Error checking or updating user image:', err);
+          }
+        );
+      }
+    }
+
     this.username = this.service.getUsername();
 
     if (this.username) {
       const currentUser = this.service.getCurrentUser();
       if (currentUser) {
-
         this.service.checkAndUpdateUser(currentUser).subscribe(
           (updatedUser) => {
             if (updatedUser.nickName !== this.username) {
@@ -53,7 +77,8 @@ export class MainComponent implements OnInit {
     } else {
       console.log('User is not logged in');
     }
-  }
+}
+
 
   submit(): void {
     if (this.username) {
@@ -61,6 +86,19 @@ export class MainComponent implements OnInit {
         .subscribe(() => this.message = '');
     } else {
       console.log('Username is not defined');
+    }
+  }
+  loadUserAvatar(): void {
+    const user = this.service.getCurrentUser();
+    if (user && user.id !== undefined) {
+      this.service.getAvatarUrl(user.id).subscribe(
+        (url: string) => {
+          this.img = url;
+        },
+        (error) => {
+          console.error('Error fetching avatar URL:', error);
+        }
+      );
     }
   }
 }
