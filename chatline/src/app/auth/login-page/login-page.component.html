@@ -3,39 +3,32 @@
     <span style="font-size: 1.5rem; margin-bottom: 20px; text-align: center;">Login</span>
 
     <!-- formGroup -->
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <!-- Username input -->
       <label for="username" style="margin-bottom: 10px; font-weight: bold; text-align: center; display: block;">User</label>
       <input id="username" formControlName="username" type="text" placeholder="nickname"
-             style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 25px;
-  margin-top: 5px;">
+             style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 25px; margin-top: 5px;">
 
       <!-- Password input -->
       <label for="password" style="margin-bottom: 10px; font-weight: bold; text-align: center; display: block;">Password</label>
       <input id="password" formControlName="password" type="password" placeholder="Password"
-             style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 5px;
-  margin-top: 5px;">
+             style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 5px; margin-top: 5px;">
 
-      <!-- Error message below password input -->
-       <div>
-      <span *ngIf="isFieldInvalid('password')" class="form-text text-danger" style="margin-bottom: 15px; text-align: center; display: block; font-size: 12px;">
-        Password or name dont match.
-      </span>
-       </div>
-      <!-- Login button below error message -->
+      <!-- Error message (field-level or global) -->
+      <div *ngIf="errorMessage" class="error-message" style="margin-bottom: 15px; text-align: center; color: red; font-size: 14px;">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Login button -->
       <button type="submit" style="padding: 10px 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;
        margin-top: 20px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">
-  Insert
-</button>
+        Insert
+      </button>
 
-<!-- Already have account link -->
-<a href="auth" style="text-decoration: none; color: #7b32e6; font-weight: bold; box-sizing: border-box;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;">
-Dont have account?</a>
-
+      <!-- Already have account link -->
+      <a href="auth" style="text-decoration: none; color: #7b32e6; font-weight: bold; box-sizing: border-box; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        Don't have an account?
+      </a>
     </form>
   </div>
 </div>

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { ValidatorService } from '../validators/validators.service';
 
 @Component({
   selector: 'app-login-page',
@@ -15,30 +14,22 @@ export class LoginPageComponent {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private validatorService: ValidatorService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', [
-        Validators.required,
-        this.validatorService.validateUserCredentials('', '')
-      ]],
+      username: [''],
+      password: [''],
     });
   }
 
-  // validation when touched
-  isFieldInvalid(field: string): boolean {
-    return !!this.loginForm.controls[field].errors && this.loginForm.controls[field].touched;
-  }
-
   onSubmit() {
-    if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched(); // mark as touched for error
+    const { username, password } = this.loginForm.value;
+
+    if (!username || !password) {
+      this.errorMessage = 'Please enter both username and password';
       return;
     }
 
-    const { username, password } = this.loginForm.value;
     this.authService.LogUser(username, password).subscribe(user => {
       if (user) {
         this.router.navigate(['/chat']);

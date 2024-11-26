@@ -30,11 +30,11 @@ export class ValidatorService {
     };
   };
 
-  // Function to check credentials against the backend
+  
   private checkUserCredentials(nickname: string, password: string) {
     return this.http.post<boolean>('http://localhost:8000/api', { NickName: nickname, Passwd: password }).pipe(
-      map(response => !!response), // If the response is truthy, credentials are valid
-      catchError(() => of(false)) // Return false if an error occurs (e.g., user not found or incorrect credentials)
+      map(response => !!response), 
+      catchError(() => of(false)) 
     );
   }
   

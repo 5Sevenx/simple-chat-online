@@ -15,6 +15,7 @@ namespace dotnet_chat.Controllers
     [ApiController]
     public class ChatController : Controller
     {
+        //-----------------------------------------------------------------------------------------REDISCACHE--------------------------------------------------------------------------
         //Chaching temp
         private readonly ApplicationDbContext _context;
         private readonly IDistributedCache _cache;
@@ -25,7 +26,7 @@ namespace dotnet_chat.Controllers
         }
         //Chaching temp
 
-
+        //-----------------------------------------------------------------------------------------CREATEUSER--------------------------------------------------------------------------
         //Creating user
         [HttpPost("create")]
         public async Task<ActionResult> Create(User dto)
@@ -73,8 +74,7 @@ namespace dotnet_chat.Controllers
                 User = newUser
             });
         }
-
-
+        //-----------------------------------------------------------------------------------------PUSHERAPI--------------------------------------------------------------------------
         //Messages sender + API
         [HttpPost("messages")]
         public async Task<ActionResult> Message(MessageDTO dto)
@@ -102,8 +102,7 @@ namespace dotnet_chat.Controllers
 
             return Ok(new string[] { });
         }
-
-
+        //-----------------------------------------------------------------------------------------DELETUSER--------------------------------------------------------------------------
         //Delete user
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult> Delete(int id)
@@ -128,7 +127,7 @@ namespace dotnet_chat.Controllers
             });
         }
 
-
+        //-----------------------------------------------------------------------------------------SEARCHFORNAME-------------------------------------------------------------------------
         //Search for name
         [HttpPost("getname")]
         public async Task<ActionResult> GetByNickname([FromBody] User dto)
@@ -151,53 +150,58 @@ namespace dotnet_chat.Controllers
             // Return user 
             return Ok(existingUser);
         }
-
+        //-----------------------------------------------------------------------------------------UPDATEUSER--------------------------------------------------------------------------
         //Update user
-        [HttpPut("update")]
-        public async Task<ActionResult> UpdateUser(User user)
+        [HttpPut("update/{id}")]
+        public async Task<ActionResult> UpdateUser(int id, [FromBody]string nickname)
         {
-            var userupdated = await _context.Users.FindAsync(user.Id);
-            if (userupdated == null)
+            // Find the user by id
+            var userToUpdate = await _context.Users.FindAsync(id);
+            if (userToUpdate == null)
             {
                 return NotFound("User not found");
             }
 
-            userupdated.NickName = user.NickName;
-            userupdated.Passwd = user.Passwd;
-            await _context.SaveChangesAsync();
-            return Ok(userupdated);
+            // Update the user properties
+            userToUpdate.NickName = nickname;
+            
 
+            // Save changes
+            await _context.SaveChangesAsync();
+
+            return Ok(userToUpdate);
         }
 
-
+        //-------------------------------------------------------------------GETALL---------------------------------------------------------------------------------------------------
         //Search for name adn passwd
         [HttpPost("getall")]
         public async Task<ActionResult> GetAll([FromBody] User dto)
         {
-            
             if (string.IsNullOrEmpty(dto.NickName) || string.IsNullOrEmpty(dto.Passwd))
             {
                 return BadRequest("Password and Nickname required");
             }
-
             // search for user with this name
-            var existingUser = await _context.Users 
-                                              .FirstOrDefaultAsync(u => u.NickName == dto.NickName);
-
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.NickName == dto.NickName);
             if (existingUser == null)
             {
                 return BadRequest("User not found");
             }
-
            
             if (existingUser.Passwd != dto.Passwd)
             {
                 return BadRequest("Password is incorrect");
             }
 
-           
             return Ok(existingUser);
         }
-
+        //-----------------------------------------------------------------------------------------GETUSER--------------------------------------------------------------------------
+        [HttpGet("getuser/{id}")]
+        public async Task<ActionResult> GetUser(int id)
+        {
+            var existid = await _context.Users.FindAsync(id);
+            if (existid == null) return NotFound("User not found by this ID");
+            return Ok(existid);
+        }
     }
 }
