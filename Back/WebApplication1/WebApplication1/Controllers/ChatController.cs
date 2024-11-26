@@ -24,8 +24,6 @@ namespace dotnet_chat.Controllers
             _context = context;
             _cache = cache;
         }
-        //Chaching temp
-
         //-----------------------------------------------------------------------------------------CREATEUSER--------------------------------------------------------------------------
         //Creating user
         [HttpPost("create")]
@@ -153,7 +151,7 @@ namespace dotnet_chat.Controllers
         //-----------------------------------------------------------------------------------------UPDATEUSER--------------------------------------------------------------------------
         //Update user
         [HttpPut("update/{id}")]
-        public async Task<ActionResult> UpdateUser(int id, [FromBody]string nickname)
+        public async Task<ActionResult> UpdateUser(int id, [FromBody] User user)
         {
             // Find the user by id
             var userToUpdate = await _context.Users.FindAsync(id);
@@ -163,7 +161,7 @@ namespace dotnet_chat.Controllers
             }
 
             // Update the user properties
-            userToUpdate.NickName = nickname;
+            userToUpdate.NickName = user.NickName;
             
 
             // Save changes

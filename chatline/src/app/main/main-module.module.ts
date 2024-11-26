@@ -24,3 +24,4 @@ import { MainRoutingModule } from './main-routing.module';
   ]
 })
 export class MainModule { }
+

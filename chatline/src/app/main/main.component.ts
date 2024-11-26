@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MainServiceService } from './main-service.service';
-import { User } from './interface/user.interface';
 import Pusher from 'pusher-js';
 
 @Component({
@@ -32,7 +31,7 @@ export class MainComponent implements OnInit {
       this.messages.push(data);
     });
 
- 
+
     this.username = this.service.getUsername();
 
     if (this.username) {

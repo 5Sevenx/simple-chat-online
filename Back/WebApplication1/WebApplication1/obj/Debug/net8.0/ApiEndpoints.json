@@ -109,8 +109,8 @@
         "IsRequired": true
       },
       {
-        "Name": "nickname",
-        "Type": "System.String",
+        "Name": "user",
+        "Type": "WebApplication1.dtos.User",
         "IsRequired": true
       }
     ],

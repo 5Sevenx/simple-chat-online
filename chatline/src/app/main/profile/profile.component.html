@@ -13,9 +13,9 @@
         <hr>
         <!-- Input for name and button aligned horizontally -->
         <div class="d-flex align-items-center w-25 mb-3">
-          <input type="text" class="form-control" placeholder="Edit name">
+          <input [(ngModel)]="newName" type="text" class="form-control" placeholder="Edit name">
           <!-- Button next to the input -->
-          <button class="btn btn-primary ms-2">Upload</button>
+          <button (click)="submit()" class="btn btn-primary ms-2">Upload</button>
         </div>
         <hr>
         <!-- Input for image URL and button aligned horizontally -->
@@ -27,7 +27,7 @@
 
         <!-- Delete -->
         <div class="d-flex align-items-center p-5">
-          <button class="btn btn-danger ms-2">Delete account</button>
+          <button (click)="submitOnDelete()" class="btn btn-danger ms-2">Delete account</button>
         </div>
       </div>
     </div>
