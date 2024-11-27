@@ -54,7 +54,9 @@ namespace dotnet_chat.Controllers
             {
                 Id = newId,
                 NickName = dto.NickName,
-                Passwd = dto.Passwd
+                Passwd = dto.Passwd,
+                avatarUrl = dto.avatarUrl
+
             };
 
             // Add the user to the database
@@ -95,7 +97,9 @@ namespace dotnet_chat.Controllers
                 new
                 {
                     username = dto.Username,
-                    message = dto.Message
+                    message = dto.Message,
+                    avatar = dto.Avatar
+
                 });
 
             return Ok(new string[] { });

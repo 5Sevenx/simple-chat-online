@@ -12,9 +12,14 @@
         </div>
         <hr>
         <div class="d-flex align-items-center w-25">
-          <input [(ngModel)]="userImageUrl" type="text" class="form-control" placeholder="URL to img">
-          <button (click)="submitImageUrl()" class="btn btn-secondary ms-2">Upload</button>
+          
+          <input [(ngModel)]="tempImageUrl"
+                 type="text"
+                 class="form-control"
+                 placeholder="URL to img">
+          <button (click)="updateImageUrl()" class="btn btn-secondary ms-2">Upload</button>
         </div>
+
         <div class="d-flex align-items-center p-5">
           <button (click)="submitOnDelete()" class="btn btn-danger ms-2">Delete account</button>
         </div>

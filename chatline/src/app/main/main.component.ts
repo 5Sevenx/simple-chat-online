@@ -6,14 +6,13 @@ import Pusher from 'pusher-js';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
   username: string = '';
   message: string = '';
   img:string = '';
   messages = [
-    { username: '', message: '' },
+    { username: '', message: '', avatar: '' },
   ];
 
 
@@ -82,12 +81,14 @@ export class MainComponent implements OnInit {
 
   submit(): void {
     if (this.username) {
-      this.http.post('http://localhost:8000/api/messages', { username: this.username, message: this.message })
+      this.http.post('http://localhost:8000/api/messages', { username: this.username, message: this.message, avatar: this.img })
         .subscribe(() => this.message = '');
     } else {
       console.log('Username is not defined');
     }
   }
+
+
   loadUserAvatar(): void {
     const user = this.service.getCurrentUser();
     if (user && user.id !== undefined) {

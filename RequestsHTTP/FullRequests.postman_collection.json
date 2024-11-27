@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "44863ffa-ff20-4dd1-9eeb-08de9a744d76",
+		"_postman_id": "b91802e1-fcf5-40ba-87bc-ce95fc1110dd",
 		"name": "FullRequests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "38831073"
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"NickName\": \"dsaadaww\",\r\n  \"Passwd\": \"123456\"\r\n}",
+							"raw": "{\r\n  \"NickName\": \"dsaadaww\",\r\n  \"Passwd\": \"123456\",\r\n  \"avatarUrl\" : \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -34,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n    \"NickName\": \"dsadaw\"\r\n}",
+							"raw": "\r\n{\r\n    \"NickName\": \"Pedro\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"NickName\": \"newe\",\r\n    \"Passwd\": \"new13\"\r\n}",
+							"raw": "{\r\n    \"NickName\": \"Pedro\",\r\n    \"Passwd\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,7 +102,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/Delete/{id}"
+				"url": "http://localhost:8000/api/delete/1"
 			},
 			"response": []
 		},
@@ -113,22 +113,35 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"nickName\": \"newe\",\r\n    \"passwd\": \"new123\"\r\n}",
+					"raw": "{\r\n  \"nickname\": \"newname\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/update"
+				"url": "http://localhost:8000/api/update/5"
 			},
 			"response": []
 		},
 		{
 			"name": "GetUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"Pedro\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/getuser/4"
 			},
 			"response": []
 		},
@@ -136,15 +149,26 @@
 			"name": "GetImg",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": "http://localhost:8000/api/getimg/4"
 			},
 			"response": []
 		},
 		{
 			"name": "AddImg",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"avatarUrl\": \"https://cms.imgworlds.com/assets/a5366382-0c26-4726-9873-45d69d24f819.jpg?key=home-gallery\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/editimg/4"
 			},
 			"response": []
 		}

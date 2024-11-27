@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   currentname: string = '';
   newName: string = '';
   userImageUrl: string = '';
+  tempImageUrl: string = '';
   private baseUrl = environments.baseUrl;
 
   constructor(
@@ -110,6 +111,13 @@ export class ProfileComponent implements OnInit {
             }
           );
       }
+    }
+  }
+  
+  updateImageUrl(): void {
+    if (this.tempImageUrl.trim()) {
+      this.userImageUrl = this.tempImageUrl;
+      this.submitImageUrl();
     }
   }
 }

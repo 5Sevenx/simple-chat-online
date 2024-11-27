@@ -21,7 +21,7 @@ export class AuthService {
   }
   //Creating user
   AddUser(name: string, passwd: string): Observable<User> {
-    const userData = { NickName: name, Passwd: passwd };
+    const userData = { NickName: name, Passwd: passwd, avatarUrl: 'https://banner2.cleanpng.com/20180622/tqt/aazen4lhc.webp'};
     return this.http.post<User>(`${this.baseUrl}/create`, userData).pipe(
       tap(user => {
         this.mainservice.setCurrentUser((user as any).user);
@@ -34,7 +34,7 @@ export class AuthService {
     const loginData = { NickName: name, Passwd: passwd };
     return this.http.post<User>(`${this.baseUrl}/getall`, loginData).pipe(
       tap(user => {
-        this.mainservice.setCurrentUser(user); 
+        this.mainservice.setCurrentUser(user);
         console.log('User logged in:', user);
       }),
       map(user => user || null),
