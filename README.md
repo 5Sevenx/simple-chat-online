@@ -119,6 +119,15 @@
 
 ---
 
+> [!TIP]
+> I've always had my own abbreviations that are easier for me to use to mark something. I'll include the meaning for each abbreviation I've used here.
+> 
+> 1.**Ss** - Snapshot State
+> 
+> 2.**W** - Worknig
+
+---
+
 > [!NOTE]
 > If you see this, it means the project is still in development, so it will receive updates in the future.Or I just forgot to delete it.
 
