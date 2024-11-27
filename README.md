@@ -124,6 +124,14 @@
 > 1.**Ss** - Snapshot State
 > 
 > 2.**W** - Worknig
+>
+> 3.**Wn** - Not working
+>
+> 4.**fF** - Full functionality
+>
+> 5.**Ctd** - Completed
+>
+> 6.**CtdF** - Full completed
 
 ---
 
