@@ -1,4 +1,16 @@
-# Project Setup
+# About the Project
+
+The project is a **group chat** application where users interact in a single shared chat. There are no private channels, so messages from all users are displayed in one common chat stream.
+
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/eb929157-607a-4301-998c-0fbcb0328551" alt="Chat" />
+</p>
+
+---
+
+## Project Setup
 
 <h3>Requirements:</h3>
 
@@ -98,7 +110,6 @@
 ---
 
 
-
 > [!IMPORTANT]
 > <h2>Packages needed</h2>
 
@@ -132,9 +143,3 @@
 > 5.**Ctd** - Completed
 >
 > 6.**CtdF** - Full completed
-
----
-
-> [!NOTE]
-> If you see this, it means the project is still in development, so it will receive updates in the future.Or I just forgot to delete it.
-
