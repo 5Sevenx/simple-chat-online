@@ -140,8 +140,3 @@
 > 
 > [Groupchat](https://github.com/21Sec0nds/simple-chat-online/tree/Public-chat)
 
----
-
-> [!NOTE]
-> If you see this, it means the project is still in development, so it will receive updates in the future.Or I just forgot to delete it.
-
